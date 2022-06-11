@@ -15,7 +15,7 @@ with gzip.open("downloads.json.gz", "rt") as f:
     downloads = json.load(f)
 
 
-@app.get("/download/facsimiles/{sigil}",
+@app.get("/downloads/facsimiles/{sigil}.zip",
          responses={200: { 'content': {'application/zip': {}}}},
          description="Stream a ZIP file with all facsimiles of that sigil that are available for download.")
 async def get_sigil(sigil: str) -> StreamingResponse:
@@ -27,11 +27,13 @@ async def get_sigil(sigil: str) -> StreamingResponse:
                 suffix = '' if variant == 0 else chr(ord('a') + variant - 1)  # some pages have more than one image
                 spec.append({
                     'file': IMAGE_ROOT + unquote(urlparse(url).path), # JSON contains an URL, we need a path
-                    'name': f'{sigil}-{int(page):03}{suffix}.jpg',         # new file name
+                    'name': f'{sigil}/{sigil}-{int(page):03}{suffix}.jpg',         # new file name
                     'compression': None
                 })
         zipstream = AioZipStream(spec)
-        response = StreamingResponse(zipstream.stream(), media_type='application/zip')
+        response = StreamingResponse(zipstream.stream(),
+                                     media_type='application/zip',
+                                     headers={'Content-Disposition': f'attachment; filename="{sigil}.zip"'})
         return response
     except KeyError:
         raise HTTPException(status_code=404, detail=f"{sigil} is not a valid sigil.")
