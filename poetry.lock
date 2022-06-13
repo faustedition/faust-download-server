@@ -7,14 +7,6 @@ optional = false
 python-versions = ">=3.6,<4.0"
 
 [[package]]
-name = "aiozipstream"
-version = "0.4"
-description = "Creating zip files on the fly"
-category = "main"
-optional = false
-python-versions = "*"
-
-[[package]]
 name = "anyio"
 version = "3.6.1"
 description = "High level compatibility layer for multiple asynchronous event loop implementations"
@@ -226,19 +218,26 @@ category = "main"
 optional = false
 python-versions = ">=3.7"
 
+[[package]]
+name = "zipstream-ng"
+version = "1.3.4"
+description = "A modern and easy to use streamable zip file generator"
+category = "main"
+optional = false
+python-versions = ">=3.5.0"
+
+[package.extras]
+tests = ["pytest", "pytest-cov"]
+
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "a10562a05831dc39958e60b473a7ae002dd0b6bba4bedf47f9838d59aa0544bc"
+content-hash = "f36f80397159be5c51d06a7bdea93fee1286365493615f1aa6f7f846f292978f"
 
 [metadata.files]
 aiofiles = [
     {file = "aiofiles-0.8.0-py3-none-any.whl", hash = "sha256:7a973fc22b29e9962d0897805ace5856e6a566ab1f0c8e5c91ff6c866519c937"},
     {file = "aiofiles-0.8.0.tar.gz", hash = "sha256:8334f23235248a3b2e83b2c3a78a22674f39969b96397126cc93664d9a901e59"},
-]
-aiozipstream = [
-    {file = "aiozipstream-0.4-py2.py3-none-any.whl", hash = "sha256:a58bad8c75aba319c07bd3d817da7caec7417c1eb4f4c692e00b173fb9ded9c6"},
-    {file = "aiozipstream-0.4.tar.gz", hash = "sha256:ccc5cec35c2580b8a13185c916b1581bfcb4278ddf6ea3f7f834b6c9c47d6c61"},
 ]
 anyio = [
     {file = "anyio-3.6.1-py3-none-any.whl", hash = "sha256:cb29b9c70620506a9a8f87a309591713446953302d7d995344d0d7c6c0c9a7be"},
@@ -467,4 +466,7 @@ websockets = [
     {file = "websockets-10.3-pp37-pypy37_pp73-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:7934e055fd5cd9dee60f11d16c8d79c4567315824bacb1246d0208a47eca9755"},
     {file = "websockets-10.3-pp37-pypy37_pp73-win_amd64.whl", hash = "sha256:3eda1cb7e9da1b22588cefff09f0951771d6ee9fa8dbe66f5ae04cc5f26b2b55"},
     {file = "websockets-10.3.tar.gz", hash = "sha256:fc06cc8073c8e87072138ba1e431300e2d408f054b27047d047b549455066ff4"},
+]
+zipstream-ng = [
+    {file = "zipstream-ng-1.3.4.tar.gz", hash = "sha256:69fe93aee98b597d98c631930a62d3af429e6038297ac1aaf0b3b148fe8ffdf7"},
 ]
