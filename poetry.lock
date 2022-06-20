@@ -232,7 +232,7 @@ tests = ["pytest", "pytest-cov"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "f36f80397159be5c51d06a7bdea93fee1286365493615f1aa6f7f846f292978f"
+content-hash = "d5a56e800bc091dd812e28c0bb0d217bdb5a56a488796b6674348cb56a85d971"
 
 [metadata.files]
 aiofiles = [

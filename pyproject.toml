@@ -10,6 +10,7 @@ fastapi = "^0.78.0"
 aiofiles = "^0.8.0"
 uvicorn = {version = "^0.17.6", extras = ["standard"]}
 zipstream-ng = "^1.3.4"
+python-dotenv = "^0.20.0"
 
 [tool.poetry.dev-dependencies]
 
