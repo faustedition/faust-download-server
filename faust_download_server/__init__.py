@@ -20,13 +20,13 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
-app = FastAPI()
+app = FastAPI(root_path=settings.app_root) #, openapi_prefix=settings.app_root)
 
 with gzip.open(settings.downloads_file, "rt") as f:
     downloads = json.load(f)
 
 
-@app.get(settings.app_root + "/{sigil}.zip",
+@app.get("/{sigil}.zip",
          responses={200: {'content': {'application/zip': {}}}},
          description="Stream a ZIP file with all facsimiles of that sigil that are available for download.")
 def get_sigil(sigil: str) -> StreamingResponse:
