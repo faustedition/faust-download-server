@@ -223,3 +223,4 @@ dmypy.json
 cython_debug/
 
 /run-server.sh
+mamba
